@@ -1,0 +1,77 @@
+steps:
+# [START create serviceaccount.json]
+- id: 'serviceaccount'
+  name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args: ['cmd.sh']
+# [END serviceaccount]
+
+# [START tf-init]
+- id: 'tf init'
+  name: 'gcr.io/$PROJECT_ID/terragrunt:latest'
+  entrypoint: 'sh'
+  args: 
+  - '-c'
+  - |
+      if [ -d "environments/$BRANCH_NAME/" ]; then
+        cd environments/$BRANCH_NAME
+        terragrunt init
+      else
+        for dir in environments/*/
+        do 
+          cd ${dir}   
+          env=${dir%*/}
+          env=${env#*/}
+          echo ""
+          echo "*************** terragrunt INIT ******************"
+          echo "******* At environment: ${env} ********"
+          echo "*************************************************"
+          terragrunt init || exit 1
+          cd ../../
+        done
+      fi 
+# [END tf-init]
+
+# [START tf-plan]
+- id: 'tf plan'
+  name: 'gcr.io/$PROJECT_ID/terragrunt:latest'
+  entrypoint: 'sh'
+  args: 
+  - '-c'
+  - | 
+      if [ -d "environments/$BRANCH_NAME/" ]; then
+        cd environments/$BRANCH_NAME
+        terragrunt plan
+      else
+        for dir in environments/*/
+        do 
+          cd ${dir}   
+          env=${dir%*/}
+          env=${env#*/}  
+          echo ""
+          echo "*************** terragrunt PLAN ******************"
+          echo "******* At environment: ${env} ********"
+          echo "*************************************************"
+          terragrunt || exit 1
+          cd ../../
+        done
+      fi 
+# [END tf-plan]
+
+# [START tf-apply]
+- id: 'tf apply'
+  name: 'gcr.io/$PROJECT_ID/terragrunt:latest'
+  entrypoint: 'sh'
+  args: 
+  - '-c'
+  - | 
+      if [ -d "environments/$BRANCH_NAME/" ]; then
+        cd environments/$BRANCH_NAME      
+        terragrunt apply -auto-approve
+      else
+        echo "***************************** SKIPPING APPLYING *******************************"
+        echo "Branch '$BRANCH_NAME' does not represent an oficial environment."
+        echo "*******************************************************************************"
+      fi
+# [END tf-apply]
+
