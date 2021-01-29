@@ -13,4 +13,3 @@ gcloud auth activate-service-account --key-file ./creds/serviceaccount.json
 
 cp ./creds/serviceaccount.json ./environments/serviceaccount.json
 
-
