@@ -3,7 +3,7 @@ include {
 }
 
 terraform {
-  source = "git::git@github.com:mohammadlachgar/module-tf-crTables-bq.git//dry/bigquery/crTables?ref=v0.0.1"
+  source = "github.com/mohammadlachgar/module-tf-crTables-bq.git//dry/bigquery/crTables?ref=v0.0.1"
 }
 
 inputs = {
