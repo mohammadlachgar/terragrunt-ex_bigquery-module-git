@@ -1,12 +1,10 @@
 include {
   path = find_in_parent_folders()
 }
-locals {
-  versionModule     = var.versionModule
-}
+
 
 terraform {
-  source = "github.com/mohammadlachgar/module-tf-crTables-bq.git//dry/bigquery?ref=${local.versionModule}"
+  source = "github.com/mohammadlachgar/module-tf-crTables-bq.git//dry/bigquery?ref=${var.versionModule}"
 }
 
 inputs = {
