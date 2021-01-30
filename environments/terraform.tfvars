@@ -7,7 +7,7 @@ project     = "burnished-case-280710"
 region      = "europe-west1"
 zone        = "europe-west1-b"
 #credentials = "serviceaccount.json"
-versionModule = "v0.0.4"
+
 config_file = "./config.yaml"
 
 # ========================================================================================
