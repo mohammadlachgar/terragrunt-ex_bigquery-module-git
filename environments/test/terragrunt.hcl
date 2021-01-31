@@ -2,6 +2,7 @@
 locals {
   environment_vars = read_terragrunt_config(find_in_parent_folders("env.hcl"))
   versionMdEx1 = local.environment_vars.locals.varsion_ModuleEx1
+  config_file = local.environment_vars.locals.config_file
 }
 
 include {
@@ -15,4 +16,5 @@ terraform {
 
 inputs = {
 credentials = "${get_parent_terragrunt_dir()}/serviceaccount.json"
+config_file = local.config_file
 }
