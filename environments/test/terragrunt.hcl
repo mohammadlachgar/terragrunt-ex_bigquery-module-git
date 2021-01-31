@@ -4,5 +4,5 @@
 
 
 include {
-file("${get_parent_terragrunt_dir()}/variables.txt")
+file("${get_parent_terragrunt_dir()}/terragrunt_cheldren.hcl")
 }
