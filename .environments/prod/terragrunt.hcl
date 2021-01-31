@@ -14,9 +14,7 @@ include {
 
 terraform {
   source = "github.com/mohammadlachgar/module-tf-crTables-bq.git//dry/bigquery?ref=${local.versionMdEx1}"
-  labels = {
-    env     = var.env
-  }
+
 }
 
 
@@ -26,7 +24,7 @@ inputs = {
 
   #crTables
   folder_tables_schema = local.config_crtables.locals.folder_tables_schema
-  env     = var.env
+
 
   #view
   dataset_id  = local.config_view.locals.dataset_id
