@@ -5,7 +5,7 @@ locals {
 }
 
 include {
-  path = find_in_parent_folders()
+  path = find_in_parent_folders("terragrunt.hcl")
 }
 
 
@@ -17,7 +17,7 @@ terraform {
 
 
 inputs = {
-  
+
   credentials = local.environment_vars.locals.credentials
 
   folder_tables_schema = local.config_crtables.locals.folder_tables_schema

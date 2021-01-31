@@ -5,7 +5,7 @@ locals {
  }
 
 include {
-  path = find_in_parent_folders()
+  path = find_in_parent_folders("terragrunt.hcl")
 }
 
 
@@ -14,7 +14,7 @@ terraform {
 }
 
 inputs = {
-  
+
   credentials = local.environment_vars.locals.credentials
 
   dataset_id  = local.config_view.locals.dataset_id
