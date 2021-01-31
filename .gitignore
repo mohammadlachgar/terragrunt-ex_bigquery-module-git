@@ -1,6 +1,4 @@
-./.environments/.serviceaccount.json
-./.environments/*
-
+.environments/*
 # Local .terraform directories
 **/.terraform/*
 
