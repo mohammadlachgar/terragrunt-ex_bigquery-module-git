@@ -15,7 +15,7 @@ steps:
   - |
       if [ -d ".environments/$BRANCH_NAME/" ]; then
         cd .environments/$BRANCH_NAME
-        echo "yes" | terragrunt destroy
+        echo y | terragrunt destroy
       else
         for dir in .environments/*/
         do 
