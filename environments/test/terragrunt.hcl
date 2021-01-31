@@ -3,10 +3,6 @@ locals {
   environment_vars = read_terragrunt_config(find_in_parent_folders("env.hcl"))
   versionMdEx1 = local.environment_vars.locals.varsion_ModuleEx1
   config_view = read_terragrunt_config(find_in_parent_folders("config_view.hcl"))
-  dataset_id  = local.config_view.dataset_id
-  table_id    = local.config_view.table_id
-  description = local.config_view.description
-  query       = local.config_view.query
 }
 
 include {
@@ -19,9 +15,9 @@ terraform {
 }
 
 inputs = {
-  credentials = "${get_parent_terragrunt_dir()}/serviceaccount.json"
-  dataset_id  = local.dataset_id
-  table_id    = local.table_id
-  description = local.description
-  query       = local.query
+  credentials = local.environment_vars.locals.credentials
+  dataset_id  = local.config_view.locals.dataset_id
+  table_id    = local.config_view.locals.table_id
+  description = local.config_view.locals.description
+  query       = local.config_view.locals.query
 }
