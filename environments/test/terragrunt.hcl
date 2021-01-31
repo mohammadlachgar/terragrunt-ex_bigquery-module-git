@@ -1,8 +1,4 @@
-# include {
-#   path = find_in_parent_folders("terragrunt_cheldren.hcl")
-# }
-
-
 include {
-file("${get_parent_terragrunt_dir()}/terragrunt_cheldren.hcl")
+  path = find_in_parent_folders("terragrunt_cheldren.txt")
 }
+
