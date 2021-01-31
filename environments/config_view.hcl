@@ -6,6 +6,6 @@ description = "My example view"
 
 #path
 #query = "${get_parent_terragrunt_dir("cmd.sh")}/query.sql"
-query = "${find_in_parent_folders("cmd.sh")}/query.sql"
+query = "${find_in_parent_folders("/")}/query.sql"
 
 }
