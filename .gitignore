@@ -1,4 +1,8 @@
+.environments/.serviceaccount.json
 .environments/*
+cloudbuild*.yaml
+.vscode
+.environments
 # Local .terraform directories
 **/.terraform/*
 
