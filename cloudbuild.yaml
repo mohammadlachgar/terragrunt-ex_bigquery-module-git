@@ -15,7 +15,7 @@ steps:
   - |
       if [ -d "environments/$BRANCH_NAME/" ]; then
         cd environments/$BRANCH_NAME
-        terragrunt init
+        terragrunt init-all
       else
         for dir in environments/*/
         do 
@@ -41,7 +41,7 @@ steps:
   - | 
       if [ -d "environments/$BRANCH_NAME/" ]; then
         cd environments/$BRANCH_NAME
-        terragrunt plan
+        terragrunt plan-all
       else
         for dir in environments/*/
         do 
@@ -67,11 +67,12 @@ steps:
   - | 
       if [ -d "environments/$BRANCH_NAME/" ]; then
         cd environments/$BRANCH_NAME      
-        terragrunt apply -auto-approve
+        terragrunt apply-all
       else
         echo "***************************** SKIPPING APPLYING *******************************"
         echo "Branch '$BRANCH_NAME' does not represent an oficial environment."
         echo "*******************************************************************************"
       fi
 # [END tf-apply]
+#terragrunt apply-all -auto-approve
 
