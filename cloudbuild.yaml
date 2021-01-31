@@ -14,7 +14,7 @@ steps:
   - '-c'
   - |
       if [ -d "environments/$BRANCH_NAME/" ]; then
-        cd environments/$BRANCH_NAME/view
+        cd environments/$BRANCH_NAME
          echo "Y" | terragrunt init-all  
       else
         for dir in environments/*/
@@ -40,7 +40,7 @@ steps:
   - '-c'
   - | 
       if [ -d "environments/$BRANCH_NAME/" ]; then
-        cd environments/$BRANCH_NAME/view
+        cd environments/$BRANCH_NAME
         echo "Y" | terragrunt plan-all 
       else
         for dir in environments/*/
