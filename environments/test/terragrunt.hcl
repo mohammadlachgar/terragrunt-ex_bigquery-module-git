@@ -5,5 +5,5 @@
 # }
 
 dependencies {
-  paths = ["../view", "../crTables"]
+  paths = ["view", "crTables"]
 }
