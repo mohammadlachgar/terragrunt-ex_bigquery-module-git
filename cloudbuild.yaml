@@ -74,4 +74,5 @@ steps:
         echo "*******************************************************************************"
       fi
 # [END tf-apply]
+#terragrunt apply -auto-approve
 

@@ -1,25 +1,44 @@
+variable "project" {
+  type = string
+}
+
+variable "region" {
+  type = string
+}
+
+variable "zone" {
+  type = string
+}
+
+variable "credentials" {
+  type = string
+}
+
+variable "env" {
+  type = string
+}
+
+variable "config_file" {
+  type = string
+}
 
 # ========================================================================================
 # GCP BIGQUERY GENERIC PROPERTIES
 # ========================================================================================
 
-project     = "burnished-case-280710"
-region      = "europe-west1"
-zone        = "europe-west1-b"
-#credentials = "serviceaccount.json"
+variable "bq_location" {
+  type    = string
+}
 
-config_file = "./config.yaml"
-
-# ========================================================================================
-# GCP BIGQUERY GENERIC PROPERTIES
-# ========================================================================================
+variable "bq_creator" {
+  type    = string
+}
 
 
-  bq_location = "EU"
+variable "bq_description" {
+  type    = string
+}
 
-  bq_creator = "github-ahmed"
-
-  bq_description = "dataset description"
 
 
 # ========================================================================================
@@ -27,12 +46,21 @@ config_file = "./config.yaml"
 # ========================================================================================
 
 
+variable "bq_staging_dataset" {
+  type    = string
+}
 
-  bq_datasets_delete_data_on_destroy = true
+variable "bq_datasets_delete_data_on_destroy" {
+  type    = bool
+}
+
 
 
 # ========================================================================================
 # GCP BIGQUERY TABLES
 # ========================================================================================
 
-  bq_table_label_env   = "test"
+
+variable "bq_table_label_env" {
+  type    = string
+}

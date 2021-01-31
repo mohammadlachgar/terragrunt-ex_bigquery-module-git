@@ -12,6 +12,7 @@
         "push",
         "refresh"
       ]
+
     }
   }
 
@@ -43,72 +44,82 @@ provider "google" {
 EOF
 }
 
-
 generate "variables" {
   path = "variables.tf"
   if_exists = "overwrite_terragrunt"
-  contents = <<EOF
-variable "project" {
-  type = string
+  contents = file("${get_parent_terragrunt_dir()}/variables.txt")
+
 }
 
-variable "region" {
-  type = string
-}
+# generate "variables" {
+#   path = "variables.tf"
+#   if_exists = "overwrite_terragrunt"
+#   contents = <<EOF
+# variable "project" {
+#   type = string
+# }
 
-variable "zone" {
-  type = string
-}
+# variable "region" {
+#   type = string
+# }
 
-variable "credentials" {
-  type = string
-}
+# variable "zone" {
+#   type = string
+# }
 
-variable "env" {
-  type = string
-}
+# variable "credentials" {
+#   type = string
+# }
 
-# ========================================================================================
-# GCP BIGQUERY GENERIC PROPERTIES
-# ========================================================================================
+# variable "env" {
+#   type = string
+# }
 
-variable "bq_location" {
-  type    = string
-}
+# variable "config_file" {
+#   type = string
+# }
 
-variable "bq_creator" {
-  type    = string
-}
+# # ========================================================================================
+# # GCP BIGQUERY GENERIC PROPERTIES
+# # ========================================================================================
 
+# variable "bq_location" {
+#   type    = string
+# }
 
-variable "bq_description" {
-  type    = string
-}
-
-
-
-# ========================================================================================
-# GCP BIGQUERY DATASETS
-# ========================================================================================
+# variable "bq_creator" {
+#   type    = string
+# }
 
 
-variable "bq_staging_dataset" {
-  type    = string
-}
-
-variable "bq_datasets_delete_data_on_destroy" {
-  type    = bool
-}
+# variable "bq_description" {
+#   type    = string
+# }
 
 
 
-# ========================================================================================
-# GCP BIGQUERY TABLES
-# ========================================================================================
+# # ========================================================================================
+# # GCP BIGQUERY DATASETS
+# # ========================================================================================
 
 
-variable "bq_table_label_env" {
-  type    = string
-}
-EOF
-}
+# variable "bq_staging_dataset" {
+#   type    = string
+# }
+
+# variable "bq_datasets_delete_data_on_destroy" {
+#   type    = bool
+# }
+
+
+
+# # ========================================================================================
+# # GCP BIGQUERY TABLES
+# # ========================================================================================
+
+
+# variable "bq_table_label_env" {
+#   type    = string
+# }
+# EOF
+# }
