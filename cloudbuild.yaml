@@ -6,31 +6,7 @@ steps:
   args: ['cmd.sh']
 # [END serviceaccount]
 
-# # [START tf-destroy]
-# - id: 'tf destroy'
-#   name: 'gcr.io/$PROJECT_ID/terragrunt:latest'
-#   entrypoint: 'sh'
-#   args: 
-#   - '-c'
-#   - |
-#       if [ -d ".environments/$BRANCH_NAME/" ]; then
-#         cd .environments/$BRANCH_NAME
-#         yes | terragrunt destroy
-#       else
-#         for dir in .environments/*/
-#         do 
-#           cd ${dir}   
-#           env=${dir%*/}
-#           env=${env#*/}
-#           echo ""
-#           echo "*************** terragrunt destroy ******************"
-#           echo "******* At environment: ${env} ********"
-#           echo "*************************************************"
-#           yes | terragrunt destroy || exit 1
-#           cd ../../
-#         done
-#       fi 
-# # [END tf-destroy] 
+
 
 # [START tf-init]
 - id: 'tf init'
@@ -58,31 +34,7 @@ steps:
       fi 
 # [END tf-init] 
 
-# # [START tf-refresh]
-# - id: 'tf refresh'
-#   name: 'gcr.io/$PROJECT_ID/terragrunt:latest'
-#   entrypoint: 'sh'
-#   args: 
-#   - '-c'
-#   - |
-#       if [ -d ".environments/$BRANCH_NAME/" ]; then
-#         cd .environments/$BRANCH_NAME
-#         terragrunt refresh
-#       else
-#         for dir in .environments/*/
-#         do 
-#           cd ${dir}   
-#           env=${dir%*/}
-#           env=${env#*/}
-#           echo ""
-#           echo "*************** terragrunt refresh ******************"
-#           echo "******* At environment: ${env} ********"
-#           echo "*************************************************"
-#           terragrunt refresh || exit 1
-#           cd ../../
-#         done
-#       fi 
-# # [END tf-refresh]
+
 
 # [START tf-plan]
 - id: 'tf plan'
@@ -126,5 +78,5 @@ steps:
         echo "*******************************************************************************"
       fi
 # [END tf-apply]
-#terragrunt apply -auto-approve
+
 
