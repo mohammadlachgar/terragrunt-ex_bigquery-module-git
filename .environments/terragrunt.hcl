@@ -26,7 +26,7 @@ remote_state {
   }
   config = {
     bucket = "project_id-tfstate"
-    prefix = "${path_relative_to_include()}/terraform.tfstate"
+    prefix = "${path_relative_to_include()}"
   }
 }
 
