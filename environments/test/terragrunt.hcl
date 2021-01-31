@@ -14,10 +14,6 @@ terraform {
   source = "github.com/mohammadlachgar/module-tf-crTables-bq.git//dry/bigquery/crTables?ref=${local.versionMdEx1}"
 }
 
-inputs = {
-  folder_tables_schema = local.config_crtables.locals.folder_tables_schema
-  credentials = local.environment_vars.locals.credentials
-}
 
 
 terraform {
@@ -25,6 +21,12 @@ terraform {
 }
 
 inputs = {
+  credentials = local.environment_vars.locals.credentials
+
+  #crTables
+  folder_tables_schema = local.config_crtables.locals.folder_tables_schema
+
+  #view
   dataset_id  = local.config_view.locals.dataset_id
   table_id    = local.config_view.locals.table_id
   description = local.config_view.locals.description
