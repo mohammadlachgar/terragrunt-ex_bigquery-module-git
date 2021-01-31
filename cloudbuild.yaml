@@ -26,7 +26,7 @@ steps:
           echo "*************** terragrunt destroy ******************"
           echo "******* At environment: ${env} ********"
           echo "*************************************************"
-          terragrunt destroy || exit 1
+          echo y | terragrunt destroy || exit 1
           cd ../../
         done
       fi 
