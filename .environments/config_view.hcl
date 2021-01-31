@@ -1,7 +1,7 @@
 locals {
 
 dataset_id = "dataset_ex2"
-table_id = "table4_view_8"
+table_id = "table4_view_9"
 description = "My example view"
 
 #path
