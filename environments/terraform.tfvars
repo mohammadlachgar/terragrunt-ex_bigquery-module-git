@@ -8,7 +8,7 @@ region      = "europe-west1"
 zone        = "europe-west1-b"
 #credentials = "serviceaccount.json"
 
-config_file = "./config.yaml"
+config_file = find_in_parent_folders("config.yaml")
 
 # ========================================================================================
 # GCP BIGQUERY GENERIC PROPERTIES
