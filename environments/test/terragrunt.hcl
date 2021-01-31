@@ -12,13 +12,12 @@ include {
 
 terraform {
   source = "github.com/mohammadlachgar/module-tf-crTables-bq.git//dry/bigquery/crTables?ref=${local.versionMdEx1}"
-}
-
-
-
-terraform {
   source = "github.com/mohammadlachgar/module-tf-crTables-bq.git//dry/bigquery/view?ref=${local.versionMdEx1}"
+
 }
+
+
+
 
 inputs = {
   credentials = local.environment_vars.locals.credentials
