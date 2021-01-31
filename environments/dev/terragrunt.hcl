@@ -1,4 +1,3 @@
-
 locals {
   environment_vars = read_terragrunt_config(find_in_parent_folders("env.hcl"))
   versionMdEx1 = local.environment_vars.locals.varsion_ModuleEx1
