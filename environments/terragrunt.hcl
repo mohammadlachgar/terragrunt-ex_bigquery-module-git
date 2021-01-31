@@ -43,6 +43,12 @@ provider "google" {
 EOF
 }
 
+generate "variables" {
+  path = "variables.tf"
+  if_exists = "overwrite_terragrunt"
+  contents = file("${get_parent_terragrunt_dir()}/variables.txt")
+
+}
 
 # generate "variables" {
 #   path = "variables.tf"
@@ -115,4 +121,4 @@ EOF
 #   type    = string
 # }
 # EOF
-#}
+# }
