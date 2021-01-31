@@ -14,6 +14,9 @@ include {
 
 terraform {
   source = "github.com/mohammadlachgar/module-tf-crTables-bq.git//dry/bigquery?ref=${local.versionMdEx1}"
+ labels = {
+    env     = var.env
+  }
 }
 
 
