@@ -21,7 +21,7 @@ echo "***** Set up git with key and domain ******"
 chmod 600 /root/.ssh/$id_github
 cat <<EOF >/root/.ssh/config
 Hostname github.com
-IdentityFile /root/.ssh/$id_github
+IdentityFile /root/.ssh/echo"$id_github"
 EOF
 
 ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
