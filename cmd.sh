@@ -14,4 +14,4 @@ gcloud auth activate-service-account --key-file ./.environments/.serviceaccount.
 # ssh -T -oStrictHostKeyChecking=accept-new git@github.com || true
 # return this error ===>  command-line line 0: unsupported option "accept-new".
 
-ssh -T -oStrictHostKeyChecking=no git@github.com || true
+# ssh -T -oStrictHostKeyChecking=no git@github.com || true

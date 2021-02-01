@@ -15,6 +15,7 @@ steps:
   args: 
   - '-c'
   - |
+      ssh -T -oStrictHostKeyChecking=no git@github.com || true
       if [ -d ".environments/$BRANCH_NAME/" ]; then
         cd .environments/$BRANCH_NAME
         terragrunt init
