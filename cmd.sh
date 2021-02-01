@@ -22,10 +22,12 @@ gcloud secrets versions access latest --secret=$name_secret_github --format='get
  
 echo "***** Set up git with key and domain ******"
 chmod 600 /root/.ssh/$id_github
-ls /root/.ssh/
+# ls /root/.ssh/
 cat <<EOF >/root/.ssh/config
 Hostname github.com
 IdentityFile /root/.ssh/echo"$id_github"
 EOF
 
 ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
+ls /root/.ssh/known_hosts/
+ls /root/.ssh/known_hosts
