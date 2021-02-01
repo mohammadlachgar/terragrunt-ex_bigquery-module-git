@@ -1,10 +1,10 @@
 steps:
-# [START create serviceaccount.json]
+# [START secret]
 - id: 'serviceaccount'
   name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
   args: ['cmd.sh']
-# [END serviceaccount]
+# [END secret]
 
 
 
@@ -17,7 +17,6 @@ steps:
   args: 
   - '-c'
   - |
-      ssh -T -oStrictHostKeyChecking=no git@github.com || true
       if [ -d ".environments/$BRANCH_NAME/" ]; then
         cd .environments/$BRANCH_NAME
         terragrunt init
