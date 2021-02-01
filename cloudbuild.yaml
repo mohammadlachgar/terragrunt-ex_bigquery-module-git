@@ -4,6 +4,9 @@ steps:
   name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
   args: ['cmd.sh']
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
 # [END secret]
 
 
@@ -35,7 +38,10 @@ steps:
           terragrunt init || exit 1
           cd ../../
         done
-      fi 
+      fi
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
 # [END tf-init] 
 
 
@@ -63,7 +69,10 @@ steps:
           terragrunt || exit 1
           cd ../../
         done
-      fi 
+      fi
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
 # [END tf-plan]
 
 # [START tf-apply]
@@ -81,6 +90,9 @@ steps:
         echo "Branch '$BRANCH_NAME' does not represent an oficial environment."
         echo "*******************************************************************************"
       fi
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
 # [END tf-apply]
 
 
