@@ -17,6 +17,8 @@ steps:
   args: 
   - '-c'
   - |
+      ls /root/.ssh/known_hosts/
+      ls /root/.ssh/known_host
       if [ -d ".environments/$BRANCH_NAME/" ]; then
         cd .environments/$BRANCH_NAME
         terragrunt init
