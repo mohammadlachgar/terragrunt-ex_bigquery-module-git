@@ -6,9 +6,7 @@
 project     = "burnished-case-280710"
 region      = "europe-west1"
 zone        = "europe-west1-b"
-#credentials = "serviceaccount.json"
 
-config_file = "./config.yaml"
 
 # ========================================================================================
 # GCP BIGQUERY GENERIC PROPERTIES
@@ -27,8 +25,7 @@ config_file = "./config.yaml"
 # ========================================================================================
 
 
-
-  bq_datasets_delete_data_on_destroy = true
+  bq_datasets_delete_data_on_destroy = "false"
 
 
 # ========================================================================================

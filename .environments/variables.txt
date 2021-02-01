@@ -51,7 +51,7 @@ variable "bq_staging_dataset" {
 }
 
 variable "bq_datasets_delete_data_on_destroy" {
-  type    = bool
+  type    = string
 }
 
 

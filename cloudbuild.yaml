@@ -6,6 +6,8 @@ steps:
   args: ['cmd.sh']
 # [END serviceaccount]
 
+
+
 # [START tf-init]
 - id: 'tf init'
   name: 'gcr.io/$PROJECT_ID/terragrunt:latest'
@@ -30,7 +32,9 @@ steps:
           cd ../../
         done
       fi 
-# [END tf-init]
+# [END tf-init] 
+
+
 
 # [START tf-plan]
 - id: 'tf plan'
@@ -74,5 +78,5 @@ steps:
         echo "*******************************************************************************"
       fi
 # [END tf-apply]
-#terragrunt apply -auto-approve
+
 
