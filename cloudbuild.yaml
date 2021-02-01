@@ -6,6 +6,24 @@ steps:
   args: ['cmd.sh']
 # [END serviceaccount]
 
+# [START ssh-keyscan]
+# Set up git with key and domain
+- name: 'gcr.io/cloud-builders/git'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    chmod 600 /root/.ssh/id_github
+    cat <<EOF >/root/.ssh/config
+    Hostname github.com
+    IdentityFile /root/.ssh/id_github
+    EOF
+    ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
+# [END ssh-keyscan]
+
 
 
 # [START tf-init]
