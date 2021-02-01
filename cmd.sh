@@ -11,3 +11,5 @@ gcloud secrets versions access latest --secret=$name_secret --format='get(payloa
 
 gcloud auth activate-service-account --key-file ./.environments/.serviceaccount.json
 
+ssh -T -oStrictHostKeyChecking=accept-new git@github.com || true
+# ssh -T -oStrictHostKeyChecking=no git@github.com || true
