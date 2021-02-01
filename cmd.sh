@@ -29,5 +29,5 @@ IdentityFile /root/.ssh/$id_github
 EOF
 
 ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
-ls /root/.ssh/known_hosts/
-ls /root/.ssh/known_hosts
+
+#ls /root/.ssh/known_hosts
