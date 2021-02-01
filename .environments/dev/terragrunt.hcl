@@ -1,6 +1,6 @@
 locals {
   environment_vars = read_terragrunt_config(find_in_parent_folders("env.hcl"))
-  versionMdEx1 = local.environment_vars.locals.varsion_ModuleEx1
+  # versionMdEx1 = local.environment_vars.locals.varsion_ModuleEx1
   path_config_view = "${find_in_parent_folders("../")}/queries/config_view.hcl"
   config_view = read_terragrunt_config(local.path_config_view)
   path_config_crtables = "${find_in_parent_folders("../")}/create_this_tables_schema/config_crtables.hcl"
@@ -13,7 +13,7 @@ include {
 
 
 terraform {
-  source = "github.com/mohammadlachgar/module-tf-crTables-bq.git//dry/bigquery?ref=${local.versionMdEx1}"
+  source = local.environment_vars.locals. source_module-tf-crTables-bq
 }
 
 
