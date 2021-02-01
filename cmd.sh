@@ -17,6 +17,7 @@ gcloud secrets versions access latest --secret=$name_secret_bigquery --format='g
 gcloud auth activate-service-account --key-file ./.environments/.serviceaccount.json
 
 ls /root
+mkdir -p /root/.ssh 
 ls /root/.ssh
 ls /root/
 gcloud secrets versions access latest --secret=$name_secret_github > /root/.ssh/$id_github
