@@ -4,7 +4,8 @@ name_secret_bigquery="serviceaccount-bigquery-storag"
 
 name_secret_github="github_private"
 
-id_github="636630"#name private SSH key
+#id_github = name private SSH key
+id_github="636630"
 
 #mkdir -p ./creds 
 
