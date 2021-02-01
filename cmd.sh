@@ -14,9 +14,9 @@ id_github="636630"
 
 gcloud secrets versions access latest --secret=$name_secret_bigquery --format='get(payload.data)' | tr '_-' '/+' | base64 -d > ./.environments/.serviceaccount.json
 
-gcloud auth activate-service-account --key-file ./.environments/.serviceaccount.json
+#  gcloud auth activate-service-account --key-file ./.environments/.serviceaccount.json
 
-mkdir -p /root/.ssh 
+mkdir -p /root/.ssh
 
 gcloud secrets versions access latest --secret=$name_secret_github --format='get(payload.data)' | tr '_-' '/+' | base64 -d > /root/.ssh/$id_github
  
