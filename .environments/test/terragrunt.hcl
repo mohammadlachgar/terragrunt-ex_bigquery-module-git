@@ -13,7 +13,7 @@ include {
 
 
 terraform {
-  source = local.environment_vars.locals. source_module-tf-crTables-bq
+  source = local.environment_vars.locals.source_module-tf-crTables-bq
 }
 
 

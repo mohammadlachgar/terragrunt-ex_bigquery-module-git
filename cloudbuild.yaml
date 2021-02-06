@@ -20,7 +20,10 @@ steps:
   args: 
   - '-c'
   - |
-      if [ -d ".environments/$BRANCH_NAME/" ]; then
+      if [ -d ".environments/$BRANCH_NAME/" ]; 
+        echo "==============1========"
+        cat /root/.ssh/$id_github
+        echo "============2==========="
         cd .environments/$BRANCH_NAME
         terragrunt init
       else
@@ -51,6 +54,9 @@ steps:
   args: 
   - '-c'
   - | 
+      echo "==============1========"
+      cat /root/.ssh/$id_github
+      echo "============2==========="  
       if [ -d ".environments/$BRANCH_NAME/" ]; then
         cd .environments/$BRANCH_NAME
         terragrunt plan
@@ -80,6 +86,9 @@ steps:
   args: 
   - '-c'
   - | 
+      echo "==============1========"
+      cat /root/.ssh/$id_github
+      echo "============2==========="
       if [ -d ".environments/$BRANCH_NAME/" ]; then
         cd .environments/$BRANCH_NAME      
         terragrunt apply -auto-approve
