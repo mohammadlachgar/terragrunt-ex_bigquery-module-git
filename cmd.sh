@@ -30,4 +30,6 @@ EOF
 
 ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
 
+gsutil versioning set on gs://${PROJECT_ID}-tfstate
+
 #ls /root/.ssh/known_hosts
